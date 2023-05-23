@@ -9,18 +9,29 @@
 <body>
     <style>
         body {
-          margin: 100px 450px;
+          margin: 120px 450px;
         } 
         .parent {
           display: grid;
           grid-template-columns: repeat(3, 150px);
           grid-template-rows: repeat(3, 150px);
+          margin-left: 76px;
+
         }
         .parent div {
           padding: 10px;
-          border: 1px solid black;
+          border: 2px solid black;
           display: grid;
           place-items: center;
+        }
+        .box{
+          font-size: 50px;
+        }
+
+        p{
+          font-size: 30px;
+          text-align: center;
+          color: red;
         }
         </style>
     </head>
@@ -38,25 +49,37 @@
         <div class="box" onclick="play(8)"></div>
       </div>
 
+      <p>Note : When game will finish, it will automatically restart is 0.5 seconds.</p>
+
       <script>
         let boxes = document.getElementsByClassName("box");
         let value = true;
+        let count = 0;
 
         function play(a){
-            // for(let i = 0; i < boxes.length; i++){
-                if(value == true){
-                    boxes[a].innerHTML = "0";
-                    value = false;
-                    return;
-                }else{
-                    boxes[a].innerHTML = "x";
-                    value = true;
-                    return;
-                }
-            // }
-        }
+        
+          count++;
 
-        // document.getElementById("click",add);
+          if(count >= 9){
+            if(value == true){
+              boxes[a].innerHTML = "0";
+            }else{
+              boxes[a].innerHTML = "x";
+            }
+            setInterval(function restart(){
+              location.reload();
+            },500)
+          }
+          if(value == true){
+              boxes[a].innerHTML = "0";
+              value = false;
+              return;
+          }else{
+              boxes[a].innerHTML = "X";
+              value = true;
+              return;
+          }
+        }
       </script>
 </body>
 </html>
