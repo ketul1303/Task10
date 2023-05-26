@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chess</title>
+    <style>
+        .container{
+            /* margin-left:550px; */
+            margin-top: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            /* border: 1px solid black; */
+        }
+        .black{
+            background-color: black;
+        }
+        .tile{
+            height: 50px;
+            width: 50px;
+            border:0px solid black;
+        }
+    </style>
+</head>
+<body>
+<input type="text" id="m" placeholder="Rows">
+<input type="text" id="n" placeholder="Colums">
+<button onclick="createBoard()">Create Board</button>    
+<div class="container" id="box"></div><br>
+<script>
+    function createBoard(){
+
+        var rows = Number(document.getElementById("m").value);
+        var columns = Number(document.getElementById("n").value);
+        var outerBox = document.getElementById("box");
+        outerBox.innerHTML = "";
+        outerBox.style.height = 50 * rows;
+        outerBox.style.width = 50 * columns;
+
+        console.log(parseInt(outerBox.style.width));
+    for(var i = 0; i < (columns * rows); i++){
+        var tile = document.createElement("div");
+        var rowNumber = Math.floor(i / rows);
+        if(Math.floor(rowNumber) % 2 === 0){
+            if(i % 2 !== 0){
+                tile.classList.add("black");
+            }
+        }else{
+            if(i % 2 === 0){
+                tile.classList.add("black");
+            }
+        }
+        tile.classList.add("tile");
+        outerBox.appendChild(tile);
+    }
+}
+    
+    
+</script>    
+</body>
+</html>
