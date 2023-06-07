@@ -35,8 +35,8 @@
         var columns = Number(document.getElementById("n").value);
         var outerBox = document.getElementById("box");
         outerBox.innerHTML = "";
-        outerBox.style.height = 50 * rows;
-        outerBox.style.width = 50 * columns;
+        outerBox.style.height = 50 * rows + "px";
+        outerBox.style.width = 50 * columns + "px";
 
         console.log(parseInt(outerBox.style.width));
     for(var i = 0; i < (columns * rows); i++){
