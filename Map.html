@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+     const inputArray = [
+      {
+        id : 1,
+        name : "User 1"
+      },
+      {
+        id : 2,
+        name : "User 2"
+      },
+      {
+        id : 3,
+        name : "User 3"
+      },
+     ];
+
+     const resultArray = inputArray.map( (currentValue) => {
+
+          delete currentValue.name;
+
+         if(currentValue.id % 2 == 0){
+        return {...currentValue,gender : "Male"};
+      }else{
+        return {...currentValue,gender : "Female"};
+      }
+
+     })
+
+     console.log(resultArray);
+    </script>
+</body>
+</html>
